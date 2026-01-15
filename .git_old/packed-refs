@@ -1,0 +1,5 @@
+# pack-refs with: peeled fully-peeled sorted 
+4681ea66cf3bed2c064b3d6bd152405f7d33c2e6 refs/heads/main
+32827571c1ecc47f487b80c762eff913f1f3f29a refs/heads/replit-agent
+c02f68a769ff74c3755c1b32f2d6c623fd9fd72d refs/remotes/gitsafe-backup/main
+32827571c1ecc47f487b80c762eff913f1f3f29a refs/replit/agent-ledger
