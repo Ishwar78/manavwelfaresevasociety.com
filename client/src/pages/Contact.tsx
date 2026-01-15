@@ -165,8 +165,10 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Address</h3>
                       <p className="text-muted-foreground">
-                        Shop No. 5, First Floor, Near New Bus Stand,<br />
-                        Bhuna, Fatehabad, Haryana 125111
+                        Laxmi Mata Mandir Wali Gali,<br />
+                        Kulan Road, Shastri Mandi,<br />
+                        Bhuna, District Fatehabad,<br />
+                        Haryana - 125111, India
                       </p>
                     </div>
                   </div>
@@ -176,9 +178,17 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                      <a href="tel:+919812676818" className="text-muted-foreground hover:text-primary">
-                        +91 98126 76818
-                      </a>
+                      <div className="space-y-1">
+                        <a href="tel:+919812676818" className="block text-muted-foreground hover:text-primary">
+                          +91 98126 76818
+                        </a>
+                        <a href="tel:+919253276818" className="block text-muted-foreground hover:text-primary">
+                          +91 92532 76818
+                        </a>
+                        <a href="tel:+917015466537" className="block text-muted-foreground hover:text-primary">
+                          +91 70154 66537
+                        </a>
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -187,8 +197,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                      <a href="mailto:sukhvinderbains1988@gmail.com" className="text-muted-foreground hover:text-primary">
-                        sukhvinderbains1988@gmail.com
+                      <a href="mailto:mwssbhuna@gmail.com" className="text-muted-foreground hover:text-primary">
+                        mwssbhuna@gmail.com
                       </a>
                     </div>
                   </div>

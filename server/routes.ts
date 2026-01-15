@@ -14,7 +14,8 @@ import {
   sendResultNotificationEmail,
   sendAdmitCardNotificationEmail,
   sendRollNumberNotificationEmail,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  sendContactFormEmail
 } from "./email";
 import { Member, PasswordResetToken, MemberCard } from "./models";
 
@@ -871,7 +872,17 @@ export async function registerRoutes(app: Express): Promise<void> {
 
   app.post("/api/public/contact", async (req, res) => {
     try {
+      const { name, email, phone, subject, message } = req.body;
       await storage.createContactInquiry(req.body);
+      
+      // Send email notification to mwssbhuna@gmail.com
+      try {
+        await sendContactFormEmail({ name, email, phone, subject, message });
+      } catch (emailError) {
+        console.error("Failed to send contact form email:", emailError);
+        // Don't fail the request if email fails
+      }
+      
       res.status(201).json({ success: true, message: "Message sent successfully" });
     } catch (error) {
       res.status(500).json({ error: "Failed to send message" });

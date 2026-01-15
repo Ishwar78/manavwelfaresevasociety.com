@@ -51,7 +51,7 @@ const defaultSettings = [
   { key: "siteName", value: "Manav Welfare Seva Society", label: "Site Name", labelHindi: "साइट का नाम", description: "Organization name", type: "string" as const, category: "general" },
   { key: "siteNameHindi", value: "मानव वेलफेयर सेवा सोसाइटी", label: "Site Name (Hindi)", labelHindi: "साइट का नाम (हिंदी)", description: "Organization name in Hindi", type: "string" as const, category: "general" },
   { key: "contactPhone", value: "+91 98126 76818", label: "Contact Phone", labelHindi: "संपर्क फ़ोन", description: "Contact phone number", type: "string" as const, category: "contact" },
-  { key: "contactEmail", value: "info@manavwelfare.org", label: "Contact Email", labelHindi: "संपर्क ईमेल", description: "Contact email address", type: "string" as const, category: "contact" },
+  { key: "contactEmail", value: "mwssbhuna@gmail.com", label: "Contact Email", labelHindi: "संपर्क ईमेल", description: "Contact email address", type: "string" as const, category: "contact" },
   { key: "upiId", value: "manavwelfare@upi", label: "UPI ID", labelHindi: "UPI आईडी", description: "UPI ID for payments", type: "string" as const, category: "payments" },
   { key: "villageFee", value: "99", label: "Village Fee", labelHindi: "ग्राम शुल्क", description: "Village level fee amount", type: "number" as const, category: "fees" },
   { key: "blockFee", value: "199", label: "Block Fee", labelHindi: "ब्लॉक शुल्क", description: "Block level fee amount", type: "number" as const, category: "fees" },

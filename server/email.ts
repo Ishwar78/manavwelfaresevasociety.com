@@ -306,3 +306,32 @@ export async function sendPasswordResetEmail(data: {
   `;
   return sendEmail({ to: data.email, subject: `Password Reset Request - Manav Welfare Seva Society / पासवर्ड रीसेट अनुरोध`, html });
 }
+
+export async function sendContactFormEmail(data: {
+  name: string;
+  email: string;
+  phone?: string;
+  subject: string;
+  message: string;
+}) {
+  const contactEmail = "mwssbhuna@gmail.com";
+  const html = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+      <h2 style="color: #2563eb;">New Contact Form Submission</h2>
+      <h3>Manav Welfare Seva Society - Website Inquiry</h3>
+      <table style="border-collapse: collapse; width: 100%; margin: 20px 0;">
+        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Name:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${data.name}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 8px; border: 1px solid #ddd;"><a href="mailto:${data.email}">${data.email}</a></td></tr>
+        ${data.phone ? `<tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Phone:</strong></td><td style="padding: 8px; border: 1px solid #ddd;"><a href="tel:${data.phone}">${data.phone}</a></td></tr>` : ''}
+        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Subject:</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${data.subject}</td></tr>
+      </table>
+      <h3>Message:</h3>
+      <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 10px 0;">
+        <p style="white-space: pre-wrap;">${data.message}</p>
+      </div>
+      <hr style="margin: 20px 0;">
+      <p style="color: #666; font-size: 12px;">This message was sent from the Manav Welfare Seva Society website contact form.</p>
+    </div>
+  `;
+  return sendEmail({ to: contactEmail, subject: `[Contact Form] ${data.subject} - from ${data.name}`, html });
+}
