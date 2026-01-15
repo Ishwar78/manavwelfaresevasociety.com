@@ -61,7 +61,7 @@ export default function AdminPayments() {
     accountNumber: "",
     ifscCode: "",
     accountHolderName: "",
-    level: "" as "" | "village" | "block" | "district" | "haryana",
+    level: "none" as "none" | "village" | "block" | "district" | "haryana",
     isActive: true,
     order: 0
   });
@@ -119,10 +119,15 @@ export default function AdminPayments() {
       toast({ title: "Error", description: "Name is required", variant: "destructive" });
       return;
     }
+    // Convert "none" level to undefined for API
+    const dataToSend = {
+      ...form,
+      level: form.level === "none" ? undefined : form.level
+    };
     if (editingConfig) {
-      updateMutation.mutate({ id: editingConfig.id, data: form });
+      updateMutation.mutate({ id: editingConfig.id, data: dataToSend as typeof form });
     } else {
-      createMutation.mutate(form);
+      createMutation.mutate(dataToSend as typeof form);
     }
   };
 
@@ -143,7 +148,7 @@ export default function AdminPayments() {
       accountNumber: config.accountNumber || "",
       ifscCode: config.ifscCode || "",
       accountHolderName: config.accountHolderName || "",
-      level: config.level || ("" as any),
+      level: config.level || "none",
       isActive: config.isActive,
       order: config.order
     });
@@ -162,7 +167,7 @@ export default function AdminPayments() {
       accountNumber: "",
       ifscCode: "",
       accountHolderName: "",
-      level: "",
+      level: "none",
       isActive: true,
       order: 0
     });
@@ -282,7 +287,7 @@ export default function AdminPayments() {
                       <SelectValue placeholder="Select level (optional)" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">None</SelectItem>
+                      <SelectItem value="none">None</SelectItem>
                       {levelOptions.map((opt) => (
                         <SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>
                       ))}
